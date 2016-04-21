@@ -1,4 +1,4 @@
-# Ops Regression Suite
+# Regression Framework Suite
 
 ## Quick Start
 * Get ruby setup.  
