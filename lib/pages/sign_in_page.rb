@@ -10,8 +10,8 @@ class SigninPage
 
   def login(params = {})
   	email_element.when_present
-    email = params[:email] || 'bmayhew@daxko.com'
-    password = params[:password] || 'Blue4242'
+    email = params[:email] || 'test112@daxko.com'
+    password = params[:password] || 'HappyBirthday12'
     submit
   end
 end

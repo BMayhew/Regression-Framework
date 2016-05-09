@@ -14,7 +14,7 @@ describe 'Create account' do
       on SignupPage do |page|
         page.input_user_details(
           email: @email,
-          password: 'Daxko123!'
+          password: 'HappyBirthday1'
         )
         page.home
       end

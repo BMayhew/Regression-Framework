@@ -12,8 +12,8 @@ class SignupPage
   def input_user_details(params = {})
     email_element.when_present
     self.email = params[:email] || Faker::Internet.email
-    self.password = params[:password] || 'Daxko123!'
-    self.password_confirmation = params[:password] || 'Daxko123!'
+    self.password = params[:password] || 'HappyBirthday1'
+    self.password_confirmation = params[:password] || 'HappyBirthday1'
     self.submit
   end
 end
