@@ -1,6 +1,9 @@
 # Regression Framework Suite
 
 ## Quick Start
+* Install Firefox
+* Install Git
+* Pull down the repository to your local computer (git clone)
 * Get ruby setup.  
 	* Windows: http://railsinstaller.org/en
 	* OSX: http://rvm.io/rvm/install
