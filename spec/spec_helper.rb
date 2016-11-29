@@ -7,7 +7,7 @@ require 'page-object/page_factory'
 require 'faker'
 require 'pages'
 
-browser = Watir::Browser.new :firefox
+browser = Watir::Browser.new :chrome
 browser.window.maximize
 
 RSpec.configure do |config|

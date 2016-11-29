@@ -12,8 +12,8 @@
 * `rspec spec/signup_spec.rb` to run a single test and verify it's working
 * `rspec` to run all tests.
 
-## Use Chrome instead of FireFox
-* If you want to use chrome for watir testing (recommended because it's faster), you need to download the chromedriver and put it in your PATH.
+## Download and Install ChromeDriver
+* You will need to put ChromeDriver in your PATH
 	* [Download ChromeDriver](http://chromedriver.storage.googleapis.com/index.html) (choose the latest version)
 	* Extract it to some directory, e.g., c:\utils\chromedriver
 	* Now go put c:\utils\chromedriver in the PATH (start : edit environment variables for your account : edit the 'Path' variable and append that directory to it)
