@@ -14,7 +14,7 @@
 
 ## Download and Install ChromeDriver
 * You will need to put ChromeDriver in your PATH
-	* [Download ChromeDriver](http://chromedriver.storage.googleapis.com/index.html) (choose the latest version)
+	* [Download ChromeDriver](http://chromedriver.chromium.org/downloads) (choose the latest version)
 	* Extract it to some directory, e.g., c:\utils\chromedriver
 	* Now go put c:\utils\chromedriver in the PATH (start : edit environment variables for your account : edit the 'Path' variable and append that directory to it)
 
