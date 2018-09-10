@@ -1,7 +1,7 @@
 $LOAD_PATH << File.dirname(__FILE__) + '/../lib'
 
 require 'rspec'
-require 'watir-webdriver'
+require 'watir'
 require 'page-object'
 require 'page-object/page_factory'
 require 'faker'
