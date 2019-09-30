@@ -4,8 +4,9 @@
 * Install Git
 * Pull down the repository to your local computer (git clone)
 * Get ruby setup.  
-	* Windows: http://railsinstaller.org/en
-	* OSX: http://rvm.io/rvm/install
+	* Windows: Install [Ruby 2.3.8](https://s3.amazonaws.com/railsinstaller/Windows/railsinstaller-3.4.0.exe)
+	* OSX: Install [Ruby Version Manager (RVM)](https://rvm.io/rvm/install)
+	* OSX: Install the appropriate version of Ruby using the version specific install command `rvm install ruby-X.X.X`
 * `gem install bundler` if bundler is not already installed
 * `bundle` to install required gems.  (You need to run this whenever pulling down this repo with new changes)
 * `rspec spec/signup_spec.rb` to run a single test and verify it's working
