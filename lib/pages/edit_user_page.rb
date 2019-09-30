@@ -1,7 +1,7 @@
 class EditUserPage
   include PageObject
 
-  page_url 'http://ec2-54-172-107-45.compute-1.amazonaws.com:3003/users/edit'
+  page_url 'http://209.97.151.77:3000/users/edit'
 
   link(:cancel_account, text: 'Cancel my account' )
 
