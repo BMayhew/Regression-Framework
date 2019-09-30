@@ -1,6 +1,8 @@
 source 'https://rubygems.org' do
-  gem 'rspec'
-  gem 'watir'
-  gem 'page-object'
   gem 'faker'
+  gem 'page-object'
+  gem 'rspec'
+  gem 'rubocop', require: false
+  gem 'rubocop-rspec', require: false
+  gem 'watir'
 end

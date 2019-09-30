@@ -2,14 +2,10 @@ describe 'Create account' do
   context 'free plan' do
     before(:all) do
       @email = Faker::Internet.email
-      
-      visit HomePage do |page|
-        page.my_account
-      end
 
-      on SigninPage do |page|
-        page.sign_up
-      end
+      visit HomePage, &:my_account
+
+      on SigninPage, &:sign_up
 
       on SignupPage do |page|
         page.input_user_details(
@@ -20,17 +16,14 @@ describe 'Create account' do
       end
     end
 
-     after(:all) do
-       visit EditUserPage do |page|
-         page.cancel_and_confirm
-       end
-     end
+    after(:all) do
+      visit EditUserPage, &:cancel_and_confirm
+    end
 
-     it 'currently signed in' do
-        on HomePage do |page|
-          expect(page.content_div).to include("Currently sign in as #{@email}")
-        end
-     end
-
+    it 'currently signed in' do
+      on HomePage do |page|
+        expect(page.content_div).to include("Currently sign in as #{@email}")
+      end
+    end
   end
 end

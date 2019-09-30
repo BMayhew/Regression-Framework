@@ -8,10 +8,10 @@ require 'faker'
 require 'pages'
 
 browser = Watir::Browser.new :chrome
-#browser.window.maximize
+# browser.window.maximize
 
 RSpec.configure do |config|
   config.include PageObject::PageFactory
   config.before(:all) { @browser = browser }
-  #config.after(:suite) { browser.close }
+  # config.after(:suite) { browser.close }
 end

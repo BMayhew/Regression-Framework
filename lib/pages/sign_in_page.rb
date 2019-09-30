@@ -9,9 +9,9 @@ class SigninPage
   div(:error_message, class: 'form-error-main')
 
   def login(params = {})
-  	email_element.when_present
-    email = params[:email] || 'test112@daxko.com'
-    password = params[:password] || 'HappyBirthday12'
+    email_element.when_present
+    params[:email] || 'test112@daxko.com'
+    params[:password] || 'HappyBirthday12'
     submit
   end
 end

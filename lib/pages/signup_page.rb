@@ -1,7 +1,6 @@
 class SignupPage
   include PageObject
 
-
   link(:home, href: '/')
 
   text_field(:email, id: 'user_email')
@@ -14,6 +13,6 @@ class SignupPage
     self.email = params[:email] || Faker::Internet.email
     self.password = params[:password] || 'HappyBirthday1'
     self.password_confirmation = params[:password] || 'HappyBirthday1'
-    self.submit
+    submit
   end
 end
