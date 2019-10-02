@@ -6,6 +6,7 @@ require 'page-object'
 require 'page-object/page_factory'
 require 'faker'
 require 'pages'
+require 'headless'
 
 if ENV['HEADLESS']
   headless = Headless.new
