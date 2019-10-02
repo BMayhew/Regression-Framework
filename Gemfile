@@ -1,5 +1,6 @@
 source 'https://rubygems.org' do
   gem 'faker'
+  gem 'headless'
   gem 'page-object'
   gem 'rspec'
   gem 'rubocop', require: false

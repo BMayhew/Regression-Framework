@@ -23,6 +23,7 @@ RUN wget -O /tmp/chromedriver.zip http://chromedriver.storage.googleapis.com/$CH
 # Pull Test Automation from git and bundle
 RUN git clone https://github.com/bmayhew/Regression-Framework.git \
     && cd Regression-Framework \
+    && git checkout Docker-test \
     && bundle install
 
 RUN google-chrome-stable --no-sandbox --headless
