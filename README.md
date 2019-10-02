@@ -51,3 +51,24 @@ The [faker](https://github.com/stympy/faker) can be used to generate random fake
  
 #### Things to consider when writing tests
 1. We've run into several scenarios where workflows are very similar or an abstraction could be made. We decided simplicity, readability, and accessibility are more valuable than conciseness in many cases. If you have a series of tests with a bunch of if conditions trying to determine what state the tests need to run, it's probably better to duplicate that test for each mode. 
+
+## Using Docker
+* Running `docker build -t ca_ui_regression_docker .` will create a docker image with everything needed to run the automation.
+* Run this to start the server
+
+docker run -e SCREEN="1280x1024x16" -t -i --rm ca_ui_regression_docker:latest bash
+
+###### Troubleshooting
+If there are any issues starting the chrome driver in docker, the Docker Daemon file may need to be updated.
+* If on a Mac select Docker Whale -> Preferences
+* Select Daemon and swap to Advanced
+* Add the following in the text box
+ ```
+    {
+        "fixed-cidr-v6" : "2001:db8:1::/64",
+        "debug" : true,
+        "ipv6" : true,
+        "experimental" : true
+    }
+```
+* Apply and Restart
