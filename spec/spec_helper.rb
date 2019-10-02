@@ -8,7 +8,7 @@ require 'faker'
 require 'pages'
 
 if ENV['HEADLESS']
-  headless = Headless.new(reuse: false)
+  headless = Headless.new
   headless.start
 end
 
