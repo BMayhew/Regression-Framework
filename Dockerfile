@@ -24,7 +24,8 @@ RUN wget -O /tmp/chromedriver.zip http://chromedriver.storage.googleapis.com/$CH
 RUN git clone https://github.com/bmayhew/Regression-Framework.git \
     && cd Regression-Framework \
     && git checkout Docker-test \
-    && bundle install
+    && bundle install \
+    && gem list
 
 RUN google-chrome-stable --no-sandbox --headless
 
