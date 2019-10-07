@@ -2,8 +2,8 @@ ARG RUBY_VERSION=2.6.2
 FROM ruby:${RUBY_VERSION}
 
 ENV DEBIAN_FRONTEND noninteractive
-ENV CHROMIUM_DRIVER_VERSION 77.0.3865.40
-ENV CHROME_VERSION amd64 77.0.3865.90-1
+ENV CHROMIUM_DRIVER_VERSION 76.0.3809.126
+ENV CHROME_VERSION amd64 76.0.3809.132-1
 ENV HEADLESS true
 
 # Install dependencies & Chrome
@@ -14,20 +14,25 @@ RUN apt-get update && apt-get -y --no-install-recommends install zlib1g-dev libl
  && rm -rf /var/lib/apt/lists/*
 
 # Install Chrome driver
-RUN wget -O /tmp/chromedriver.zip http://chromedriver.storage.googleapis.com/$CHROMIUM_DRIVER_VERSION/chromedriver_linux64.zip \
+RUN wget -O /tmp/chromedriver.zip https://chromedriver.storage.googleapis.com/$CHROMIUM_DRIVER_VERSION/chromedriver_linux64.zip \
     && unzip /tmp/chromedriver.zip chromedriver -d /usr/bin/ \
     && rm /tmp/chromedriver.zip \
     && chmod ugo+rx /usr/bin/chromedriver \
     && apt-mark hold google-chrome-stable
 
-# Pull Test Automation from git and bundle
-RUN git clone https://github.com/bmayhew/Regression-Framework.git \
-    && cd Regression-Framework \
-    && git checkout Docker-test \
-    && bundle install \
-    && gem list
+# Copying local files to container
+RUN mkdir /app
+WORKDIR /app
+COPY . .
+RUN ls 
 
-RUN google-chrome-stable --no-sandbox --headless
+# Pull Test Automation from git and bundle
+#RUN git clone https://github.com/bmayhew/Regression-Framework.git \
+# RUN gem install bundler \
+#     && bundle install \
+#     && gem list
+
+# RUN google-chrome-stable --no-sandbox --headless
 
 # RUN mkdir /data
 # VOLUME /data

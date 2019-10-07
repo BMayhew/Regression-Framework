@@ -14,7 +14,7 @@ if ENV['HEADLESS']
 end
 
 client = Selenium::WebDriver::Remote::Http::Default.new
-args = ['--no-sandbox --headless']
+args = ['--no-sandbox --disable-dev-shm-usage --headless']
 browser = Watir::Browser.new :chrome, http_client: client, options: { args: args }
 
 RSpec.configure do |config|

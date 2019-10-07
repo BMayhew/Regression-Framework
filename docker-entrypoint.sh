@@ -18,8 +18,11 @@ which chromedriver
 
 # Start Chrome
 # exec sh -c "/usr/bin/google-chrome-stable $CHROME_ARGS"
+gem install bundler \
+&& bundle install \
+&& gem list
+bash
+# rspec spec
 
-
-cd Regression-Framework && git pull && rspec
 
 exec "$@"
