@@ -62,10 +62,9 @@ Run the docker image:
 `docker run -e SCREEN="1280x1024x16" -t -i --rm ca_ui_regression_docker:latest`
 `docker run -e SCREEN="1280x1024x16" -t -i -v $(pwd):/automation --rm ca_ui_regression_docker:latest`
 
-
 #### Using Docker Compose
 
-`./v start` - starts the container running the automation
-`./v cli` - console into the docker container. From here you cna manually run specs `rspec spec`
-`./v stop` - stops the container
-`./v run` - runs the automated tests with feedback and stops container
+* `./v start` - starts the container running the automation
+* `./v cli` - console into the docker container. From here you cna manually run specs `rspec spec`
+* `./v stop` - stops the container
+* `./v run` - runs the automated tests with feedback and stops container
