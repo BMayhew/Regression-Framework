@@ -1,15 +1,18 @@
-FROM ruby:2.5
-
-MAINTAINER Nikita Bulai <bulaj.nikita@gmail.com>
+ARG RUBY_VERSION=2.6
+FROM ruby:${RUBY_VERSION}
 
 ENV DEBIAN_FRONTEND noninteractive
-ENV CHROMIUM_DRIVER_VERSION 2.41
+# https://www.ubuntuupdates.org/pm/google-chrome-stable
+ENV CHROMIUM_DRIVER_VERSION 79.0.3945.36
+# https://chromedriver.chromium.org/
+ENV CHROME_VERSION 79.0.3945.79-1
+ENV HEADLESS true
 
 # Install dependencies & Chrome
-RUN apt-get update && apt-get -y --no-install-recommends install zlib1g-dev liblzma-dev wget xvfb unzip libgconf2-4 libnss3 nodejs \
+RUN apt-get update && apt-get -y --no-install-recommends install zlib1g-dev liblzma-dev wget xvfb unzip libnss3 nodejs \
  && wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | apt-key add -  \
  && echo "deb http://dl.google.com/linux/chrome/deb/ stable main" >> /etc/apt/sources.list.d/google.list \
- && apt-get update && apt-get -y --no-install-recommends install google-chrome-stable \
+ && apt-get update && apt-get -y --no-install-recommends install google-chrome-stable=$CHROME_VERSION \
  && rm -rf /var/lib/apt/lists/*
 
 # Install Chrome driver
@@ -18,15 +21,13 @@ RUN wget -O /tmp/chromedriver.zip http://chromedriver.storage.googleapis.com/$CH
     && rm /tmp/chromedriver.zip \
     && chmod ugo+rx /usr/bin/chromedriver
 
-
-# Pull Test Automation from git and bundle
-RUN git clone https://github.com/BMayhew/Regression-Framework \
-    && cd Regression-Framework \
-    && git checkout docker \
-    && git pull \
-    && bundle install
-
-
+COPY . /Regression-Framework
+RUN cd Regression-Framework \
+    && gem update --system \
+    && gem install bundler \
+    && bundle install \
+    && cd .. \
+    && rm -R Regression-Framework
 
 ADD docker-entrypoint.sh /
 ENTRYPOINT ["/docker-entrypoint.sh"]
