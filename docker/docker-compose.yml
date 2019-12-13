@@ -1,0 +1,9 @@
+version: '3.7'
+services:
+  automation:
+    build: 
+      context: ..
+      dockerfile: docker/Dockerfile
+    volumes:
+      - "../:/automation"
+    privileged: true

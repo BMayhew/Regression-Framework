@@ -1,0 +1,24 @@
+#!/bin/bash
+
+command="";
+
+postfix="${@:2:${#1}}";
+
+case $1 in
+  start)
+     command="docker-compose up -d"
+     ;;
+  run)
+     command="docker-compose run -e SHORTLIVED=1 automation"
+     ;;
+  stop)
+     command="docker-compose down"
+     ;;
+  cli)
+     command="docker exec -it -w /automation docker_automation_1 bash"
+     ;;
+  *)
+     echo $"Usage: $@ {start|run|stop|cli}"
+esac
+
+eval $command;
