@@ -59,23 +59,21 @@ The [faker](https://github.com/stympy/faker) can be used to generate random fake
 
 1. We've run into several scenarios where workflows are very similar or an abstraction could be made. We decided simplicity, readability, and accessibility are more valuable than conciseness in many cases. If you have a series of tests with a bunch of if conditions trying to determine what state the tests need to run, it's probably better to duplicate that test for each mode.
 
-#### To Use a pre-configured Docker container
+#### Using Docker Compose (Recomended)
 
-The provided docker container will you to run automation in an isolated environment quickly.
-
-Build the docker image:
-From the root diretory run: `docker build -t ca_ui_regression_docker -f docker/Dockerfile .`
-
-OLD..`docker build -t ca_ui_regression_docker .`
-
-
-Run the docker image:
-`docker run -e SCREEN="1280x1024x16" -t -i --rm ca_ui_regression_docker:latest`
-`docker run -e SCREEN="1280x1024x16" -t -i -v $(pwd):/automation --rm ca_ui_regression_docker:latest`
-
-#### Using Docker Compose
 First validate the build: `docker-compose build` once complete any commands below can be run.
+
 * `./v start` - starts the container running the automation
 * `./v cli` - console into the docker container. From here you can manually run specs `rspec spec`
 * `./v stop` - stops the container
 * `./v run` - runs the automated tests with feedback and stops container
+
+#### To Use a pre-configured Docker container
+
+The provided docker container will you to run automation in an isolated environment quickly.
+
+1. Build the docker image:
+From the root diretory run: `docker build -t ca_ui_regression_docker -f docker/Dockerfile .`
+
+2. Run the docker image:
+`docker run -e SCREEN="1280x1024x16" -t -i -v $(pwd):/automation --rm ca_ui_regression_docker:latest`
