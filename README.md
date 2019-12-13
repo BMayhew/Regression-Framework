@@ -64,7 +64,10 @@ The [faker](https://github.com/stympy/faker) can be used to generate random fake
 The provided docker container will you to run automation in an isolated environment quickly.
 
 Build the docker image:
-`docker build -t ca_ui_regression_docker .`
+From the root diretory run: `docker build -t ca_ui_regression_docker -f docker/Dockerfile .`
+
+OLD..`docker build -t ca_ui_regression_docker .`
+
 
 Run the docker image:
 `docker run -e SCREEN="1280x1024x16" -t -i --rm ca_ui_regression_docker:latest`

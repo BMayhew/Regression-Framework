@@ -1,7 +1,0 @@
-#!/bin/bash
-
-if [ "${SHORTLIVED}" = 0 ]; then
-  echo "run ./v cli to access the container"
-else
-  echo "We are all done here, have a great day!"
-fi
