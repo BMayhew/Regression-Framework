@@ -5,8 +5,8 @@
 * Install Git
 * Pull down the repository to your local computer (git clone)
 * Get ruby setup.  
-* Windows: http://railsinstaller.org/en
-* OSX: http://rvm.io/rvm/install
+* Windows: <http://railsinstaller.org/en>
+* OSX: <http://rvm.io/rvm/install>
 * `gem install bundler` if bundler is not already installed
 * `bundle` to install required gems.  (You need to run this whenever pulling down this repo with new changes)
 * `rspec spec/signup_spec.rb` to run a single test and verify it's working
@@ -21,7 +21,7 @@
 
 ## Frameworks
 
-#### Page-Object
+### Page-Object
 
 We're using the [page-object](https://github.com/cheezy/page-object) gem to wrap around watir-webdriver.  You can always drop down and use the watir browser object, but page-object provides some nice abstractions.
 
@@ -29,11 +29,12 @@ We're using the [page-object](https://github.com/cheezy/page-object) gem to wrap
 * [Simple DSL](https://github.com/cheezy/page-object/wiki/Simple-DSL)
 * [Ajax Calls](https://github.com/cheezy/page-object/wiki/Ajax-Calls)
 
-#### jqueryui_widgets
+### jqueryui_widgets
 
 The Page-Object gem creator has created a widget for [jqueryui elements](https://github.com/cheezy/jqueryui_widgets/tree/master/lib/jqueryui_widgets). There is no clear documentation but there are good examples.
 
-#### faker
+### faker
+
 The [faker](https://github.com/stympy/faker) can be used to generate random fake data within tests.
 
 #### RSpec
@@ -56,7 +57,7 @@ The [faker](https://github.com/stympy/faker) can be used to generate random fake
 
 #### Things to consider when writing tests
 
-1. We've run into several scenarios where workflows are very similar or an abstraction could be made. We decided simplicity, readability, and accessibility are more valuable than conciseness in many cases. If you have a series of tests with a bunch of if conditions trying to determine what state the tests need to run, it's probably better to duplicate that test for each mode. 
+1. We've run into several scenarios where workflows are very similar or an abstraction could be made. We decided simplicity, readability, and accessibility are more valuable than conciseness in many cases. If you have a series of tests with a bunch of if conditions trying to determine what state the tests need to run, it's probably better to duplicate that test for each mode.
 
 #### To Use a pre-configured Docker container
 
