@@ -10,7 +10,7 @@ require 'pages'
 puts "Lets Do this"
 options = Selenium::WebDriver::Chrome::Options.new
 # options.add_argument('--start-fullscreen')
-browser = Watir::Browser.new(Selenium::WebDriver.for(:chrome, url: 'http://selenium__standalone-chrome-debug/wd/hub', options: options))
+browser = Watir::Browser.new(Selenium::WebDriver.for(:chrome, url: 'http://selenium-standalone-chrome-debug/wd/hub', options: options))
 
 # if ENV['HEADLESS']
 #   puts 'Running in headless mode'

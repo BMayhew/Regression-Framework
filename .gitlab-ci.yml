@@ -1,6 +1,7 @@
 default:
   image: ruby:2.6
-
+  services:
+    - selenium/standalone-chrome-debug
   before_script:
     - bundle install && git checkout gitlab
 
