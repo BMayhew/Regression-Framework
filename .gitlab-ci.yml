@@ -1,0 +1,8 @@
+default:
+  image: ruby:2.6
+
+  before_script:
+    - bundle install && git checkout gitlab
+
+  script:
+  - rspec spec
