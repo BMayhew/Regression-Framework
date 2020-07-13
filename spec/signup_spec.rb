@@ -22,7 +22,7 @@ describe 'Create account' do
 
     it 'currently signed in' do
       on HomePage do |page|
-        expect(page.content_div).to include("Currently sign in as #{@email}")
+        expect(page.content_div).to include("Currently1 sign in as #{@email}")
       end
     end
   end

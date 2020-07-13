@@ -30,9 +30,6 @@ Style/NumericLiterals:
 Style/FrozenStringLiteralComment:
   Enabled: false
 
-Style/BracesAroundHashParameters:
-  Enabled: false
-
 RSpec/ExampleLength:
   Enabled: false
 
@@ -77,4 +74,7 @@ Style/SymbolProc:
   - 'spec/**/*_spec.rb'
 
 Layout/EndOfLine:
+  Enabled: false
+
+Metrics/LineLength:
   Enabled: false
