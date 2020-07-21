@@ -24,6 +24,11 @@ describe 'Create account' do
       on HomePage do |page|
         expect(page.content_div).to include("Currently sign in as #{@email}")
       end
+      
+      on MainPage do |page|
+        page.go_to_google
+      end
+      
     end
   end
 end
