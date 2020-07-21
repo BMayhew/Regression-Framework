@@ -20,8 +20,10 @@ describe 'Create contact' do
     @state = Faker::Address.state
     @postal_code = Faker::Number.number(digits: 4)
     @cell_phone = Faker::Number.number(digits: 10)
+    @parced_cell_phone = "(#{@cell_phone.to_s[0..2]}) #{@cell_phone.to_s[3..5]}-#{@cell_phone.to_s[6..10]}"
     @home_phone = Faker::Number.number(digits: 10)
     @fax = Faker::Number.number(digits: 10)
+    @parced_fax = "(#{@fax.to_s[0..2]}) #{@fax.to_s[3..5]}-#{@fax.to_s[6..10]}"
 
     visit MyContactsPage, &:new_contact
 
@@ -54,9 +56,9 @@ describe 'Create contact' do
         expect(page.content_div).to include("#{@city}")
         expect(page.content_div).to include("#{@state}")
         expect(page.content_div).to include("#{@postal_code}")
-        expect(page.content_div).to include("#{@cell_phone}")
+        expect(page.content_div).to include("#{@parced_cell_phone}")
         expect(page.content_div).to include("#{@home_phone}")
-        expect(page.content_div).to include("#{@fax}")
+        expect(page.content_div).to include("#{@parced_fax}")
       end
     end
   end
