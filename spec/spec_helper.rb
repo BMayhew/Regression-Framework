@@ -13,9 +13,7 @@ browser = Watir::Browser.new :chrome
 
 $browser = browser
 
-# Class -> method
-Helper.go_to_google
-
+Helper.create_account
 
 RSpec.configure do |config|
   config.include PageObject::PageFactory
@@ -24,9 +22,7 @@ RSpec.configure do |config|
   end
 
   config.after(:suite) do
+    Helper.cancel_account
     browser.close
-    # This looks like a good place for a cancel account/logout method
   end
 end
-
-

@@ -1,18 +1,5 @@
 describe 'Create contact' do
   before(:all) do
-    @email = Faker::Internet.email
-
-    visit HomePage, &:my_account
-
-    on SigninPage, &:sign_up
-
-    on SignupPage do |page|
-      page.input_user_details(
-          email: @email,
-          password: 'HappyBirthday1'
-      )
-    end
-
     @first_name = Faker::Name.first_name
     @last_name = Faker::Name.last_name
     @street = Faker::Address.street_name
@@ -40,11 +27,6 @@ describe 'Create contact' do
           fax: @fax
       )
     end
-
-  end
-
-  after(:all) do
-    visit EditUserPage, &:cancel_and_confirm
   end
 
   context 'free plan' do

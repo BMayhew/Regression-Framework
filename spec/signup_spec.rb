@@ -1,6 +1,7 @@
 describe 'Create account' do
   context 'free plan' do
     before(:all) do
+      Helper.cancel_account
       @email = Faker::Internet.email
 
       visit HomePage, &:my_account
@@ -18,6 +19,7 @@ describe 'Create account' do
 
     after(:all) do
       visit EditUserPage, &:cancel_and_confirm
+      Helper.create_account
     end
 
     it 'currently signed in' do
