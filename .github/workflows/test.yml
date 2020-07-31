@@ -2,17 +2,16 @@ name: UI Ruby Automated Checks
 
 on: [push]
 
-env:
-	RUN_IN_DOCKER: github
-	SELENIUM_URL: http://selenium:4444/wd/hub
-
 services:
   selenium:
 		image: selenium/standalone-chrome
 		options: --health-cmd '/opt/bin/check-grid.sh'
 
 jobs:
-  build:
+	build:
+		env:
+			RUN_IN_DOCKER: github
+			SELENIUM_URL: http://selenium:4444/wd/hub
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@master
