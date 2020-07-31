@@ -8,7 +8,9 @@ jobs:
     services:
       selenium: 
         image: selenium/standalone-chrome
-        options: --health-cmd '/opt/bin/check-grid.sh'
+        # options: --health-cmd '/opt/bin/check-grid.sh'
+        ports:
+        - 4444:4444
 
     runs-on: ubuntu-latest
     steps:
@@ -24,5 +26,5 @@ jobs:
       - name: Run Automated Checks
         env:
           RUN_IN_DOCKER: github
-          SELENIUM_URL: http://selenium/wd/hub
+          SELENIUM_URL: http://selenium:4444/wd/hub
         run: rspec spec
