@@ -13,6 +13,9 @@ if ENV['HEADLESS']
   headless.start
 end
 
+client = Selenium::WebDriver::Remote::Http::Default.new
+
+
 if ENV['RUN_IN_DOCKER'] == 'local'
   options = Selenium::WebDriver::Chrome::Options.new
   browser = Watir::Browser.new(Selenium::WebDriver.for(:chrome, url: 'http://0.0.0.0:49337/wd/hub', options: options))
