@@ -17,6 +17,9 @@ jobs:
         with: 
           ruby-version: 2.7
           # bundler-cache: true
+      - env:
+          RUN_IN_DOCKER: github
+          SELENIUM_URL: http://selenium:4444/wd/hub
       - name: Install Gems
         run: |
           gem install bundler
