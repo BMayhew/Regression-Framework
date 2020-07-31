@@ -2,23 +2,21 @@ name: UI Ruby Automated Checks
 
 on: [push]
 
+
 jobs:
-	build:
-		services:
-			selenium:
-				image: selenium/standalone-chrome
-				options: --health-cmd '/opt/bin/check-grid.sh'
+  ci:
+    services:
+      selenium: 
+        image: selenium/standalone-chrome
+        options: --health-cmd '/opt/bin/check-grid.sh'
 
     runs-on: ubuntu-latest
-		steps:
-			env:
-				RUN_IN_DOCKER: github
-				SELENIUM_URL: http://selenium:4444/wd/hub
+    steps:
       - uses: actions/checkout@master
       - uses: actions/setup-ruby@v1
-        with:
-					ruby-version: 2.7
-					bundler-cache: true
+        with: 
+          ruby-version: 2.7
+          bundler-cache: true
       # - name: Install Gems
       #   run: |
       #     gem install bundler
