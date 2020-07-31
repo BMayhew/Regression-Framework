@@ -17,6 +17,22 @@ client = Selenium::WebDriver::Remote::Http::Default.new
 args = ['--no-sandbox --disable-dev-shm-usage --headless']
 browser = Watir::Browser.new :chrome, http_client: client, options: { args: args }
 
+
+if ENV['RUN_IN_DOCKER'] == 'local'
+  options = Selenium::WebDriver::Chrome::Options.new
+  browser = Watir::Browser.new(Selenium::WebDriver.for(:chrome, url: 'http://0.0.0.0:49337/wd/hub', options: options))
+elsif ENV['RUN_IN_DOCKER'] == 'github'
+  options = Selenium::WebDriver::Chrome::Options.new(args: %w[disable-dev-shm-usage no-sandbox])
+  browser = Watir::Browser.new(Selenium::WebDriver.for(:chrome, url: ENV['SELENIUM_URL'], options: options))
+else
+  args = ['--start-maximized']
+  browser = Watir::Browser.new :chrome, http_client: client, options: { args: args }
+end
+
+
+
+
+
 RSpec.configure do |config|
   config.include PageObject::PageFactory
   config.before(:all) do
