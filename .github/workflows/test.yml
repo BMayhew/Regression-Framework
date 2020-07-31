@@ -8,7 +8,7 @@ jobs:
     services:
       selenium: 
         image: selenium/standalone-chrome
-        # options: --health-cmd '/opt/bin/check-grid.sh'
+        options: --health-cmd '/opt/bin/check-grid.sh'
         ports:
         - 4444:4444
 
