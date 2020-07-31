@@ -13,11 +13,6 @@ if ENV['HEADLESS']
   headless.start
 end
 
-client = Selenium::WebDriver::Remote::Http::Default.new
-args = ['--no-sandbox --disable-dev-shm-usage --headless']
-browser = Watir::Browser.new :chrome, http_client: client, options: { args: args }
-
-
 if ENV['RUN_IN_DOCKER'] == 'local'
   options = Selenium::WebDriver::Chrome::Options.new
   browser = Watir::Browser.new(Selenium::WebDriver.for(:chrome, url: 'http://0.0.0.0:49337/wd/hub', options: options))
