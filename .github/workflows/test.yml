@@ -17,13 +17,12 @@ jobs:
         with: 
           ruby-version: 2.7
           # bundler-cache: true
-      - env:
-          RUN_IN_DOCKER: github
-          SELENIUM_URL: http://selenium:4444/wd/hub
       - name: Install Gems
         run: |
           gem install bundler
           bundle install --jobs 4 --retry 3  
       - name: Run Automated Checks
-        run: |
-          rspec spec
+        env:
+          RUN_IN_DOCKER: github
+          SELENIUM_URL: http://selenium:4444/wd/hub
+          run: rspec spec
