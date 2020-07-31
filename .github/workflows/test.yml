@@ -1,0 +1,19 @@
+name: UI Ruby Automated Checks
+
+on: [push]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@master
+      - uses: actions/setup-ruby@v1
+        with:
+          ruby-version: 2.7.0
+      - name: Install Gems
+        run: |
+          gem install bundler
+          bundle install --jobs 4 --retry 3  
+      - name: Run Automated Checks
+        run: |
+          rspec spec

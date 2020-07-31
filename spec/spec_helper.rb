@@ -26,10 +26,8 @@ RSpec.configure do |config|
     end
     @browser = browser
   end
-
   config.after(:all) do
     @headless.destroy if ENV['HEADLESS']
   end
-
   config.after(:suite) { browser.close }
 end
