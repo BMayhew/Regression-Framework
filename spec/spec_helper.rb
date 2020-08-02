@@ -22,6 +22,9 @@ if ENV['RUN_IN_DOCKER'] == 'local'
 elsif ENV['RUN_IN_DOCKER'] == 'github'
   options = Selenium::WebDriver::Chrome::Options.new(args: %w[disable-dev-shm-usage no-sandbox])
   browser = Watir::Browser.new(Selenium::WebDriver.for(:chrome, url: ENV['SELENIUM_URL'], options: options))
+elsif ENV['HEADLESS'] == true
+  options = Selenium::WebDriver::Chrome::Options.new(args: %w[disable-dev-shm-usage no-sandbox])
+  browser = Watir::Browser.new(Selenium::WebDriver.for(:chrome, headless: true, options: options))
 else
   args = ['--start-maximized']
   browser = Watir::Browser.new :chrome, http_client: client, options: { args: args }
