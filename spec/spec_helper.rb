@@ -8,6 +8,7 @@ require 'faker'
 require 'pages'
 
 browser = Watir::Browser.new :chrome
+Watir.default_timeout = 5
 
 RSpec.configure do |config|
   config.include PageObject::PageFactory
