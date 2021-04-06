@@ -10,6 +10,7 @@ jobs:
   merge_branches_job:
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/checkout@master
       - name: Merge branches
         run: bash merge_branches.sh
         shell: bash
