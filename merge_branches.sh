@@ -22,4 +22,4 @@ git branch --set-upstream-to=origin/pre-release pre-release
 git up release
 git push
 
- echo 'Merging Complete'
+ echo 'Merging Complete now'
