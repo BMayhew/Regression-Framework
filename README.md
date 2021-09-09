@@ -5,9 +5,9 @@
 * Install Git
 * Pull down the repository to your local computer (git clone)
 * Get ruby setup.  
-  * Windows: Install [Ruby 2.3.8](https://s3.amazonaws.com/railsinstaller/Windows/railsinstaller-3.4.0.exe)
+  * Windows: Install [Ruby 2.7.4](https://rubyinstaller.org/downloads/) 
   * OSX: Install [Ruby Version Manager (RVM)](https://rvm.io/rvm/install)
-  * OSX: Install the appropriate version of Ruby using the version specific install command `rvm install ruby-X.X.X`
+  * OSX: Install the appropriate version of Ruby using the version specific install command `rvm install ruby-X.X.X` Recommend 2.7.4
 * `gem install bundler` if bundler is not already installed
 * `bundle` to install required gems.  (You need to run this whenever pulling down this repo with new changes)
 * `rspec spec/signup_spec.rb` to run a single test and verify it's working
@@ -57,5 +57,3 @@ The [faker](https://github.com/stympy/faker) can be used to generate random fake
 ### Things to consider when writing tests
 
 1. We've run into several scenarios where workflows are very similar or an abstraction could be made. We decided simplicity, readability, and accessibility are more valuable than conciseness in many cases. If you have a series of tests with a bunch of if conditions trying to determine what state the tests need to run, it's probably better to duplicate that test for each mode.
-
-#### This is a test - new line
