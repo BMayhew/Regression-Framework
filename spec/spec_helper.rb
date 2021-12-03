@@ -6,6 +6,8 @@ require 'page-object'
 require 'page-object/page_factory'
 require 'faker'
 require 'pages'
+require 'webdrivers'
+
 
 browser = Watir::Browser.new :chrome
 
