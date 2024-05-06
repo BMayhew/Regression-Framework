@@ -1,7 +1,7 @@
 class EditUserPage
   include PageObject
 
-  page_url 'http://159.223.145.12:3000/users/edit'
+  page_url 'http://137.184.139.114:3000/users/edit'
 
   link(:cancel_account, text: 'Cancel my account')
 
